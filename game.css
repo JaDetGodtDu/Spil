@@ -15,6 +15,7 @@
   grid-template-columns: 100%;
   background-color: blue;
   grid-area: 1/1;
+  overflow: hidden;
 }
 #game_background {
   background-color: chocolate;
@@ -33,15 +34,49 @@
   border-style: solid;
 }
 
-#mink_container {
+#mink_container1 {
   position: absolute;
+  left: -250px;
+  top: -100px;
   border-width: 2px;
   border-color: black;
   border-style: solid;
-  transition-duration: 3s;
+  width: fit-content;
+  scale: 15%;
+  animation-name: mink1;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
-#mink_container img {
-  width: 20%;
+@keyframes mink1 {
+  0% {
+    transform: translate(-20%, 0);
+  }
+  100% {
+    transform: translate(900%, 0);
+  }
+}
+#mink_container2 {
+  position: absolute;
+  left: 500px;
+  top: 50px;
+  border-width: 2px;
+  border-color: black;
+  border-style: solid;
+  width: fit-content;
+  scale: 15%;
+  animation-name: mink2;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+@keyframes mink2 {
+  0% {
+    transform: translate(20%, 0);
+  }
+  100% {
+    transform: translate(-900%, 0);
+  }
 }
 
 #lars_container {
@@ -49,34 +84,45 @@
   border-color: black;
   border-style: solid;
   position: absolute;
-}
-#lars_container img {
-  width: 20%;
+  width: fit-content;
+  scale: 15%;
+  top: -300px;
+  left: -340px;
 }
 #jakob_container {
+  width: fit-content;
+  scale: 10%;
+  top: -400px;
+  left: 300px;
   border-width: 2px;
   border-color: black;
   border-style: solid;
   position: absolute;
+  animation-name: jakob;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
-#jakob_container img {
-  width: 20%;
-}
-#mette_container {
-  border-width: 2px;
-  border-color: black;
-  border-style: solid;
-  position: absolute;
-  z-index: 4;
-}
-#mette_container img {
-  width: 20%;
-}
-@keyframes mink_container {
+/*@keyframes jakob {
   0% {
-    transform: translate(0, -150%);
+    transform: translate(-400%, 0);
   }
   100% {
-    transform: translate(0, 150%);
+    transform: translate(100%, 0);
   }
+}*/
+
+#mette_container {
+  position: absolute;
+  top: -200px;
+  left: -20px;
+  width: fit-content;
+  scale: 20%;
+  border-width: 2px;
+  border-color: black;
+  border-style: solid;
+  z-index: 4;
+  /*background-color: chartreuse;*/
+}
+#mette_container img {
 }
