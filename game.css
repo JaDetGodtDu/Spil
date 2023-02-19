@@ -1,12 +1,9 @@
 #body {
-  border: 0%;
   margin: 0%;
 }
 #screen {
   background-color: aqua;
   display: grid;
-  grid-template-rows: 100%;
-  grid-template-columns: 100%;
   aspect-ratio: 16/9;
 }
 #game {
@@ -15,114 +12,111 @@
   grid-template-columns: 100%;
   background-color: blue;
   grid-area: 1/1;
+  position: relative;
+  z-index: 1;
   overflow: hidden;
 }
 #game_background {
   background-color: chocolate;
   background-image: url(images/farm_baggrund.jpg);
   grid-area: 1/1;
-  z-index: 1;
   background-size: cover;
+  z-index: 2;
+  aspect-ratio: 16/9;
 }
 #game_elements {
-  width: 100%;
-  height: 100%;
   grid-area: 1/1;
-  z-index: 2;
-  border-width: 2px;
+  z-index: 3;
+}
+#game_foreground {
+  z-index: 4;
+}
+/*positioning*/
+#mink1_container {
+  position: absolute;
+  top: -5vw;
+  left: 10vw;
   border-color: black;
+  border-width: 2px;
   border-style: solid;
+  scale: 25%;
+}
+#mink1_sprite {
+  width: 100%;
 }
 
-#mink_container1 {
+#mink2_container {
   position: absolute;
-  left: -250px;
-  top: -100px;
-  border-width: 2px;
+  top: 5vw;
+  left: 20vw;
   border-color: black;
-  border-style: solid;
-  width: fit-content;
-  scale: 15%;
-  animation-name: mink1;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-}
-@keyframes mink1 {
-  0% {
-    transform: translate(-20%, 0);
-  }
-  100% {
-    transform: translate(900%, 0);
-  }
-}
-#mink_container2 {
-  position: absolute;
-  left: 500px;
-  top: 50px;
   border-width: 2px;
-  border-color: black;
   border-style: solid;
-  width: fit-content;
-  scale: 15%;
-  animation-name: mink2;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+  scale: 25%;
 }
-@keyframes mink2 {
-  0% {
-    transform: translate(20%, 0);
-  }
-  100% {
-    transform: translate(-900%, 0);
-  }
+#mink2_sprite {
+  width: 100%;
 }
 
 #lars_container {
-  border-width: 2px;
-  border-color: black;
-  border-style: solid;
   position: absolute;
-  width: fit-content;
-  scale: 15%;
-  top: -300px;
-  left: -340px;
+  top: 0vw;
+  left: 40vw;
+  border-color: black;
+  border-width: 2px;
+  border-style: solid;
+  scale: 25%;
+}
+#lars_sprite {
+  width: 100%;
 }
 #jakob_container {
-  width: fit-content;
-  scale: 10%;
-  top: -400px;
-  left: 300px;
-  border-width: 2px;
-  border-color: black;
-  border-style: solid;
   position: absolute;
-  animation-name: jakob;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+  top: 20vw;
+  left: 80vw;
+  border-color: black;
+  border-width: 2px;
+  border-style: solid;
+  scale: 75%;
 }
-/*@keyframes jakob {
+#jakob_sprite {
+  width: 100%;
+}
+#mette_container {
+  position: absolute;
+  top: 35vw;
+  left: 80vw;
+  border-color: black;
+  border-width: 2px;
+  border-style: solid;
+}
+#mette_sprite {
+  width: 100%;
+}
+/*animation*/
+/*.left_to_right {
+  animation-name: left_to_right;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+@keyframes left_to_right {
   0% {
     transform: translate(-400%, 0);
   }
   100% {
-    transform: translate(100%, 0);
+    transform: translate(500%, 0);
+  }
+}
+.right_to_left {
+  animation-name: right_to_left;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+@keyframes right_to_left {
+  0% {
+    transform: translate(400%, 0);
+  }
+  100% {
+    transform: translate(-500%, 0);
   }
 }*/
-
-#mette_container {
-  position: absolute;
-  top: -200px;
-  left: -20px;
-  width: fit-content;
-  scale: 20%;
-  border-width: 2px;
-  border-color: black;
-  border-style: solid;
-  z-index: 4;
-  /*background-color: chartreuse;*/
-}
-#mette_container img {
-}
