@@ -94,7 +94,7 @@
   width: 100%;
 }
 /*animation*/
-/*.left_to_right {
+.left_to_right {
   animation-name: left_to_right;
   animation-duration: 5s;
   animation-iteration-count: infinite;
@@ -119,4 +119,4 @@
   100% {
     transform: translate(-500%, 0);
   }
-}*/
+}
