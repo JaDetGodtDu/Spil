@@ -120,3 +120,11 @@
     transform: translate(-500%, 0);
   }
 }
+.paused {
+  animation-play-state: paused;
+}
+.rotate_zoom {
+  animation-name: rotate_zoom;
+  animation-duration: 1s;
+  transform: rotate(360deg);
+}
