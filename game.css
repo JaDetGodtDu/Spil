@@ -1,9 +1,16 @@
 #body {
   margin: 0%;
 }
+
+/*Makes stuff easier to click on i think*/
+img {
+  pointer-events: none;
+}
+
 #screen {
   background-color: aqua;
   display: grid;
+  grid-template: 100% / 100%;
   aspect-ratio: 16/9;
 }
 #game {
@@ -28,10 +35,37 @@
   grid-area: 1/1;
   z-index: 3;
 }
-#game_foreground {
+#game_ui {
+  top: 2vw;
+  right: 1vw;
+  position: absolute;
   z-index: 4;
 }
-/*positioning*/
+#lives {
+  margin-block-start: 0.2em;
+  display: grid;
+  grid-template-columns: 6em 6em 6em;
+}
+#lives img {
+  width: 100%;
+}
+#game_foreground {
+  z-index: 5;
+}
+#game_over {
+  background-color: red;
+  color: white;
+  grid-area: 1/1;
+  display: grid;
+  z-index: 10;
+  justify-content: center;
+  align-content: center;
+}
+.hidden,
+#game_over.hidden {
+  display: none;
+}
+/* Moving sprites */
 #mink1_container {
   position: absolute;
   top: -5vw;
@@ -48,7 +82,7 @@
 #mink2_container {
   position: absolute;
   top: 5vw;
-  left: 20vw;
+  left: 60vw;
   border-color: black;
   border-width: 2px;
   border-style: solid;
@@ -60,8 +94,8 @@
 
 #lars_container {
   position: absolute;
-  top: 0vw;
-  left: 40vw;
+  top: -5vw;
+  left: -0vw;
   border-color: black;
   border-width: 2px;
   border-style: solid;
@@ -72,16 +106,17 @@
 }
 #jakob_container {
   position: absolute;
-  top: 20vw;
-  left: 80vw;
+  top: 15vw;
+  left: 60vw;
   border-color: black;
   border-width: 2px;
   border-style: solid;
-  scale: 75%;
+  scale: 35%;
 }
 #jakob_sprite {
   width: 100%;
 }
+/* UI */
 #mette_container {
   position: absolute;
   top: 35vw;
@@ -93,7 +128,7 @@
 #mette_sprite {
   width: 100%;
 }
-/*animation*/
+/*Passive animations*/
 .left_to_right {
   animation-name: left_to_right;
   animation-duration: 5s;
@@ -104,7 +139,7 @@
     transform: translate(-400%, 0);
   }
   100% {
-    transform: translate(500%, 0);
+    transform: translate(1100%, 0);
   }
 }
 .right_to_left {
@@ -117,14 +152,46 @@
     transform: translate(400%, 0);
   }
   100% {
-    transform: translate(-500%, 0);
+    transform: translate(-1100%, 0);
   }
 }
+/*On click animations*/
 .paused {
   animation-play-state: paused;
 }
 .rotate_zoom {
   animation-name: rotate_zoom;
   animation-duration: 1s;
-  transform: rotate(360deg);
+  animation-timing-function: linear;
+}
+
+@keyframes rotate_zoom {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    transform: rotate(360deg) scale(0.8);
+  }
+  50% {
+    transform: rotate(720deg) scale(0.6);
+  }
+  75% {
+    transform: rotate(1440deg) scale(0.4);
+  }
+  100% {
+    transform: rotate(1800deg) scale(0.1);
+  }
+}
+/* Lose life animation */
+.gray_heart {
+  filter: grayscale(75%) blur(0.5px);
+}
+/*Class added to disable selection highlighting*/
+.unselectable {
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  color: #cc0000;
 }

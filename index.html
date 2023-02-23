@@ -12,7 +12,7 @@
       <section id="game">
         <article id="game_background"></article>
         <article id="game_elements">
-          <div class="mink" id="mink1_container">
+          <div class="unselectable" id="mink1_container">
             <img
               class="clickMink"
               id="mink1_sprite"
@@ -20,7 +20,7 @@
               alt="mink"
             />
           </div>
-          <div class="mink" id="mink2_container">
+          <div class="unselectable" id="mink2_container">
             <img
               class="clickMink"
               id="mink2_sprite"
@@ -31,7 +31,7 @@
           <!-- <div class="container" id="hvede_container"> -->
           <!-- <img src="images/bolle.jpg" alt="hvede" /> -->
           <!-- </div> -->
-          <div id="lars_container">
+          <div class="unselectable" id="lars_container">
             <img
               class="clickLars"
               id="lars_sprite"
@@ -39,7 +39,7 @@
               alt="lars"
             />
           </div>
-          <div id="jakob_container">
+          <div class="unselectable" id="jakob_container">
             <img
               class="clickJakob"
               id="jakob_sprite"
@@ -49,14 +49,20 @@
           </div>
         </article>
         <article id="game_foreground">
-          <div class="ui" id="mette_container">
+          <div id="mette_container">
             <img id="mette_sprite" src="images/mette_f.svg" alt="mette" />
           </div>
         </article>
-        <article id="game_ui"></article>
+        <article id="game_ui">
+          <div id="lives">
+            <img id="heart1" src="images/heart.png" alt="heart" />
+            <img id="heart2" src="images/heart.png" alt="heart" />
+            <img id="heart3" src="images/heart.png" alt="heart" />
+          </div>
+        </article>
       </section>
       <section class="hidden" id="start"></section>
-      <section class="hidden" id="game_over"></section>
+      <section class="hidden" id="game_over"><h2>GAME OVER</h2></section>
       <section class="hidden" id="level_complete"></section>
       <section class="hidden" id="highscore"></section>
       <section class="hidden" id="instructions"></section>
