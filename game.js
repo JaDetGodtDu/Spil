@@ -50,6 +50,7 @@ function clickMink1() {
   document
     .querySelector("#mink1_container")
     .addEventListener("animationend", mink1Gone);
+  givePoints();
 }
 
 function clickMink2() {
@@ -66,6 +67,7 @@ function clickMink2() {
   document
     .querySelector("#mink2_container")
     .addEventListener("animationend", mink2Gone);
+  givePoints();
 }
 
 function clickLars() {
@@ -100,6 +102,7 @@ function clickJakob() {
   document
     .querySelector("#jakob_container")
     .addEventListener("animationend", jakobGone);
+  decreaseLives();
 }
 
 function mink1Gone() {
@@ -181,11 +184,24 @@ function jakobGone() {
     .querySelector("#jakob_container")
     .addEventListener("click", clickJakob);
 }
+function givePoints() {
+  console.log("givePoints");
+  points = points + 10;
+  displayPoints();
+}
+function displayPoints() {
+  console.log("displayPoints");
+  document.querySelector("#score").textContent = points;
+}
+
 function decreaseLives() {
   console.log("mist et liv");
   lives--;
   if (lives <= 0) {
-    game_over();
+    showDecreasedLives();
+    setTimeout(() => {
+      game_over();
+    }, 1250);
   } else {
     showDecreasedLives();
   }

@@ -54,15 +54,28 @@
           </div>
         </article>
         <article id="game_ui">
+          <div id="scoreboard">
+            <b>
+              Score:
+              <div id="score">0</div>
+            </b>
+          </div>
           <div id="lives">
-            <img id="heart1" src="images/heart.png" alt="heart" />
             <img id="heart2" src="images/heart.png" alt="heart" />
-            <img id="heart3" src="images/heart.png" alt="heart" />
+            <img id="heart1" src="images/heart.png" alt="heart" />
+            <img id="heart0" src="images/heart.png" alt="heart" />
+          </div>
+          <div id="timer">
+            <b>
+              <div id="time">01:30</div>
+            </b>
           </div>
         </article>
       </section>
       <section class="hidden" id="start"></section>
-      <section class="hidden" id="game_over"><h2>GAME OVER</h2></section>
+      <section class="hidden" id="game_over">
+        <h2><b>GAME OVER</b></h2>
+      </section>
       <section class="hidden" id="level_complete"></section>
       <section class="hidden" id="highscore"></section>
       <section class="hidden" id="instructions"></section>
