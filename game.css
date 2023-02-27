@@ -106,8 +106,6 @@ img {
 
 #mink2_container {
   position: absolute;
-  top: 20%;
-  right: -0%;
   border-color: black;
   border-width: 2px;
   border-style: solid;
@@ -119,8 +117,6 @@ img {
 
 #lars_container {
   position: absolute;
-  top: -5%;
-  left: -0%;
   border-color: black;
   border-width: 2px;
   border-style: solid;
@@ -131,8 +127,7 @@ img {
 }
 #jakob_container {
   position: absolute;
-  top: 15%;
-  right: -0%;
+
   border-color: black;
   border-width: 2px;
   border-style: solid;
@@ -211,6 +206,23 @@ img {
 /* Lose life animation */
 .gray_heart {
   filter: grayscale(75%) blur(0.5px);
+}
+/* Positions */
+.position1 {
+  top: -5%;
+  left: 0%;
+}
+.position2 {
+  top: 20%;
+  right: 0%;
+}
+.position3 {
+  top: -5%;
+  left: -0%;
+}
+.position4 {
+  top: 15%;
+  right: -0%;
 }
 /*Class added to disable selection highlighting*/
 .unselectable {

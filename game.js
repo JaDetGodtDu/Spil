@@ -7,7 +7,7 @@ let lives = 0;
 
 function start() {
   console.log("JavaScript running");
-  //Makes stuf easier to click on i think
+  //Prevents dragging - Makes stuf easier to click on i think
   const img = document.querySelector("img");
   img.ondragstart = () => {
     return false;
@@ -16,12 +16,17 @@ function start() {
   points = 0;
   lives = 3;
 
-  //Start animations
+  startAnimations();
+  startClickListeners();
+  setStartPositions();
+}
+function startAnimations() {
   document.querySelector("#mink1_container").classList.add("left_to_right");
   document.querySelector("#mink2_container").classList.add("right_to_left");
   document.querySelector("#lars_container").classList.add("left_to_right");
   document.querySelector("#jakob_container").classList.add("right_to_left");
-  //Click Listeners
+}
+function startClickListeners() {
   document
     .querySelector("#mink1_container")
     .addEventListener("click", clickMink1);
@@ -34,6 +39,12 @@ function start() {
   document
     .querySelector("#jakob_container")
     .addEventListener("click", clickJakob);
+}
+function setStartPositions() {
+  document.querySelector("#mink1_container").classList.add("position1");
+  document.querySelector("#mink2_container").classList.add("position2");
+  document.querySelector("#lars_container").classList.add("position3");
+  document.querySelector("#jakob_container").classList.add("position4");
 }
 
 function clickMink1() {
