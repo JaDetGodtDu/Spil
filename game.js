@@ -49,151 +49,127 @@ function setStartPositions() {
 
 function clickMink1() {
   console.log("clickMink1");
+  let container = this;
   // Stop listening for click
-  document
-    .querySelector("#mink1_container")
-    .removeEventListener("click", clickMink1);
+  container.removeEventListener("click", clickMink1);
   // Stop container at clicked position
-  document.querySelector("#mink1_container").classList.add("paused");
+  container.classList.add("paused");
   //Start zoom/rotate animation
   document.querySelector("#mink1_sprite").classList.add("rotate_zoom");
   //When animation stops, run mink1Gone
-  document
-    .querySelector("#mink1_container")
-    .addEventListener("animationend", mink1Gone);
+  container.addEventListener("animationend", mink1Gone);
   givePoints();
 }
 
 function clickMink2() {
   console.log("clickMink2");
+  let container = this;
   // Stop listening for click
-  document
-    .querySelector("#mink2_container")
-    .removeEventListener("click", clickMink2);
+  container.removeEventListener("click", clickMink2);
   // Stop container at clicked position
-  document.querySelector("#mink2_container").classList.add("paused");
+  container.classList.add("paused");
   //Start zoom/rotate animation
   document.querySelector("#mink2_sprite").classList.add("rotate_zoom");
   //When animation stops, run mink1Gone
-  document
-    .querySelector("#mink2_container")
-    .addEventListener("animationend", mink2Gone);
+  container.addEventListener("animationend", mink2Gone);
   givePoints();
 }
 
 function clickLars() {
   console.log("clickLars");
+  let container = this;
   //Stop listening for click
-  document
-    .querySelector("#lars_container")
-    .removeEventListener("click", clickLars);
+  container.removeEventListener("click", clickLars);
   // Stop container at clicked position
-  document.querySelector("#lars_container").classList.add("paused");
+  container.classList.add("paused");
   //Start zoom/rotate animation
   document.querySelector("#lars_sprite").classList.add("rotate_zoom");
   //When animation stops, run mink1Gone
-  document
-    .querySelector("#lars_container")
-    .addEventListener("animationend", larsGone);
+  container.addEventListener("animationend", larsGone);
 
   decreaseLives();
 }
 
 function clickJakob() {
   console.log("clickJakob");
+  let container = this;
   //Stop listening for click
-  document
-    .querySelector("#jakob_container")
-    .removeEventListener("click", clickJakob);
+  container.removeEventListener("click", clickJakob);
   // Stop container at clicked position
-  document.querySelector("#jakob_container").classList.add("paused");
+  container.classList.add("paused");
   //Start zoom/rotate animation
   document.querySelector("#jakob_sprite").classList.add("rotate_zoom");
   //When animation stops, run mink1Gone
-  document
-    .querySelector("#jakob_container")
-    .addEventListener("animationend", jakobGone);
+  container.addEventListener("animationend", jakobGone);
   decreaseLives();
 }
 
 function mink1Gone() {
   console.log("mink1Gone");
+  let container = this;
   //Stop listening
-  document
-    .querySelector("#mink1_container")
-    .removeEventListener("animationend", mink1Gone);
+  container.removeEventListener("animationend", mink1Gone);
   //Remove rotate_zoom animation
   document.querySelector("#mink1_sprite").classList.remove("rotate_zoom");
   //Remove paused animation
-  document.querySelector("#mink1_container").classList.remove("paused");
+  container.classList.remove("paused");
   //Restart animations
-  document.querySelector("#mink1_container").classList.remove("left_to_right");
-  document.querySelector("#mink1_container").offsetHeight;
-  document.querySelector("#mink1_container").classList.add("left_to_right");
+  container.classList.remove("left_to_right");
+  container.offsetHeight;
+  container.classList.add("left_to_right");
   //Start listening for click again
-  document
-    .querySelector("#mink1_container")
-    .addEventListener("click", clickMink1);
+  container.addEventListener("click", clickMink1);
 }
 
 function mink2Gone() {
   console.log("mink2Gone");
+  let container = this;
   //Stop listening to not run mink2Gone
-  document
-    .querySelector("#mink2_container")
-    .removeEventListener("animationend", mink2Gone);
+  container.removeEventListener("animationend", mink2Gone);
   //Remove rotate_zoom animation
   document.querySelector("#mink2_sprite").classList.remove("rotate_zoom");
   //Remove paused animation
-  document.querySelector("#mink2_container").classList.remove("paused");
+  container.classList.remove("paused");
   //Restart animations
-  document.querySelector("#mink2_container").classList.remove("right_to_left");
-  document.querySelector("#mink2_container").offsetHeight;
-  document.querySelector("#mink2_container").classList.add("right_to_left");
+  container.classList.remove("right_to_left");
+  container.offsetHeight;
+  container.classList.add("right_to_left");
   //Start listening for click again
-  document
-    .querySelector("#mink2_container")
-    .addEventListener("click", clickMink2);
+  container.addEventListener("click", clickMink2);
 }
 
 function larsGone() {
   console.log("larsGone");
+  let container = this;
   //Stop listening
-  document
-    .querySelector("#lars_container")
-    .removeEventListener("animationend", larsGone);
+  container.removeEventListener("animationend", larsGone);
   //Remove rotate_zoom animation
   document.querySelector("#lars_sprite").classList.remove("rotate_zoom");
   //Remove paused animation
-  document.querySelector("#lars_container").classList.remove("paused");
+  container.classList.remove("paused");
   //Restart animations
-  document.querySelector("#lars_container").classList.remove("left_to_right");
-  document.querySelector("#lars_container").offsetHeight;
-  document.querySelector("#lars_container").classList.add("left_to_right");
+  container.classList.remove("left_to_right");
+  container.offsetHeight;
+  container.classList.add("left_to_right");
   //Start listening for click again
-  document
-    .querySelector("#lars_container")
-    .addEventListener("click", clickLars);
+  container.addEventListener("click", clickLars);
 }
 
 function jakobGone() {
   console.log("jakobGone");
+  let container = this;
   //Stop listening
-  document
-    .querySelector("#jakob_container")
-    .removeEventListener("animationend", jakobGone);
+  container.removeEventListener("animationend", jakobGone);
   //Remove rotate_zoom animation
   document.querySelector("#jakob_sprite").classList.remove("rotate_zoom");
   //Remove paused animation
-  document.querySelector("#jakob_container").classList.remove("paused");
+  container.classList.remove("paused");
   //Restart animations
-  document.querySelector("#jakob_container").classList.remove("right_to_left");
-  document.querySelector("#jakob_container").offsetHeight;
-  document.querySelector("#jakob_container").classList.add("right_to_left");
+  container.classList.remove("right_to_left");
+  container.offsetHeight;
+  container.classList.add("right_to_left");
   //Start listening for click again
-  document
-    .querySelector("#jakob_container")
-    .addEventListener("click", clickJakob);
+  container.addEventListener("click", clickJakob);
 }
 function givePoints() {
   console.log("givePoints");
