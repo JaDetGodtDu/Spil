@@ -7,6 +7,11 @@ img {
   pointer-events: none;
 }
 
+body {
+  overflow-y: hidden;
+  background-image: linear-gradient(180deg, green, darkgreen);
+}
+
 #screen {
   background-color: aqua;
   display: grid;
@@ -86,8 +91,46 @@ img {
   justify-content: center;
   align-content: center;
 }
+
+#start_screen {
+  background-image: linear-gradient(180deg, green, darkgreen);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 300%;
+  color: white;
+  grid-area: 1/1;
+  display: grid;
+  z-index: 10;
+  justify-content: center;
+  align-content: center;
+}
+#start_screen h2 {
+  text-align: center;
+  font-size: 2em;
+  margin: 0;
+}
+#start_screen p {
+  text-align: center;
+  font-size: 0.75em;
+  margin: 0;
+}
+button {
+  padding: 0.5em 1em;
+  font-size: 1.5em;
+  margin: auto;
+  background-color: #ffad01;
+  color: #fff4bf;
+  border: 5px solid #ffc72e;
+  cursor: pointer;
+  border-radius: 50px;
+}
+#btnDiv {
+  margin: 100px;
+  grid-area: 0/1;
+  display: grid;
+}
 .hidden,
-#game_over.hidden {
+#game_over.hidden,
+#start_screen.hidden {
   display: none;
 }
 /* Moving sprites */
@@ -145,6 +188,7 @@ img {
   border-width: 2px;
   border-style: solid;
   scale: 35%;
+  z-index: 6;
 }
 #mette_sprite {
   width: 100%;

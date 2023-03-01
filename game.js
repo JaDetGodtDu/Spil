@@ -1,17 +1,29 @@
 "use strict";
 
-window.addEventListener("load", start);
+window.addEventListener("load", startScreen);
 
 let points = 0;
 let lives = 0;
 
+function startScreen() {
+  console.log("startScreen");
+  document.querySelector("#startBtn").addEventListener("click", start);
+}
+
 function start() {
   console.log("JavaScript running");
+
   //Prevents dragging - Makes stuf easier to click on i think
   const img = document.querySelector("img");
   img.ondragstart = () => {
     return false;
   };
+  //Hide start screen
+  document.querySelector("#start_screen").classList.add("hidden");
+
+  //Start the music
+  document.querySelector("#game_music").play();
+  document.querySelector("#game_music").loop = true;
   //Reset points and lives
   points = 0;
   lives = 3;
@@ -51,8 +63,8 @@ function clickMink1() {
   console.log("clickMink1");
   let container = this;
 
-  document.querySelector("#minkSound").play();
-  document.querySelector("#minkSound").currentTime = 0;
+  document.querySelector("#mink_sound").play();
+  document.querySelector("#mink_sound").currentTime = 0;
   // Stop listening for click
   container.removeEventListener("click", clickMink1);
   // Stop container at clicked position
@@ -68,8 +80,8 @@ function clickMink2() {
   console.log("clickMink2");
   let container = this;
 
-  document.querySelector("#minkSound").play();
-  document.querySelector("#minkSound").currentTime = 0;
+  document.querySelector("#mink_sound").play();
+  document.querySelector("#mink_sound").currentTime = 0;
   // Stop listening for click
   container.removeEventListener("click", clickMink2);
   // Stop container at clicked position
@@ -85,8 +97,8 @@ function clickLars() {
   console.log("clickLars");
   let container = this;
 
-  document.querySelector("#larsJakobSound").play();
-  document.querySelector("#larsJakobSound").currentTime = 0;
+  document.querySelector("#lars_jakob_sound").play();
+  document.querySelector("#lars_jakob_sound").currentTime = 0;
   //Stop listening for click
   container.removeEventListener("click", clickLars);
   // Stop container at clicked position
@@ -103,8 +115,8 @@ function clickJakob() {
   console.log("clickJakob");
   let container = this;
 
-  document.querySelector("#larsJakobSound").play();
-  document.querySelector("#larsJakobSound").currentTime = 0;
+  document.querySelector("#lars_jakob_sound").play();
+  document.querySelector("#lars_jakob_sound").currentTime = 0;
   //Stop listening for click
   container.removeEventListener("click", clickJakob);
   // Stop container at clicked position
@@ -213,5 +225,6 @@ function game_over() {
   console.log("Game Over");
   document.querySelector("#game_over").classList.remove("hidden");
 
-  document.querySelector("#gameOverSound").play();
+  document.querySelector("#game_music").pause();
+  document.querySelector("#game_over_sound").play();
 }
