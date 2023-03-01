@@ -50,6 +50,9 @@ function setStartPositions() {
 function clickMink1() {
   console.log("clickMink1");
   let container = this;
+
+  document.querySelector("#minkSound").play();
+  document.querySelector("#minkSound").currentTime = 0;
   // Stop listening for click
   container.removeEventListener("click", clickMink1);
   // Stop container at clicked position
@@ -64,6 +67,9 @@ function clickMink1() {
 function clickMink2() {
   console.log("clickMink2");
   let container = this;
+
+  document.querySelector("#minkSound").play();
+  document.querySelector("#minkSound").currentTime = 0;
   // Stop listening for click
   container.removeEventListener("click", clickMink2);
   // Stop container at clicked position
@@ -78,6 +84,9 @@ function clickMink2() {
 function clickLars() {
   console.log("clickLars");
   let container = this;
+
+  document.querySelector("#larsJakobSound").play();
+  document.querySelector("#larsJakobSound").currentTime = 0;
   //Stop listening for click
   container.removeEventListener("click", clickLars);
   // Stop container at clicked position
@@ -93,6 +102,9 @@ function clickLars() {
 function clickJakob() {
   console.log("clickJakob");
   let container = this;
+
+  document.querySelector("#larsJakobSound").play();
+  document.querySelector("#larsJakobSound").currentTime = 0;
   //Stop listening for click
   container.removeEventListener("click", clickJakob);
   // Stop container at clicked position
@@ -200,4 +212,6 @@ function showDecreasedLives() {
 function game_over() {
   console.log("Game Over");
   document.querySelector("#game_over").classList.remove("hidden");
+
+  document.querySelector("#gameOverSound").play();
 }
