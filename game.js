@@ -41,6 +41,7 @@ function start() {
   resetPoints();
   resetLives();
 
+  startTimer();
   startAnimations();
   startClickListeners();
   setStartPositions();
@@ -256,7 +257,36 @@ function game_over() {
   document.querySelector("#game_music").pause();
   document.querySelector("#game_over_sound").play();
 }
+function levelComplete() {
+  console.log("Level Complete");
+  document.querySelector("#level_complete").classList.remove("hidden");
+
+  document.querySelector("#game_music").pause();
+  document.querySelector("#succes_music").play();
+  document.querySelector("#wow_sound").play();
+
+  document
+    .querySelector("#btn_return_to_start1")
+    .addEventListener("click", restart);
+
+  document.querySelector("#playerPoints").textContent =
+    /* "Du har tjent: " + points + " point."; */
+    `Du har tjent: ${points} points. Tillykke!`;
+}
 /* function stopGame() {
   console.log("game has stopped");
   document.querySelector("#game").remove();
 } */
+function startTimer() {
+  // Sæt timer-animationen (count) i gang ved at tilføje klassen count til number
+  document.querySelector("#number").classList.add("count");
+
+  // Tilføj en eventlistener som lytter efter at animationen er færdig (animationend) og kalder funktionen timeIsUp
+  document.querySelector("#number").addEventListener("animationend", timeIsUp);
+}
+function timeIsUp() {
+  console.log("Tiden er gået!");
+  document.querySelector("#number").classList.remove("count");
+
+  levelComplete();
+}

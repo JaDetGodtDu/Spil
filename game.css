@@ -40,18 +40,6 @@ body {
   grid-area: 1/1;
   z-index: 3;
 }
-#game_over {
-  background-image: linear-gradient(180deg, red, darkred);
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  font-size: 300%;
-  color: white;
-  grid-area: 1/1;
-  display: grid;
-  z-index: 10;
-  justify-content: center;
-  align-content: center;
-}
-
 #start_screen {
   background-image: linear-gradient(180deg, green, darkgreen);
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
@@ -73,6 +61,29 @@ body {
   font-size: 0.75em;
   margin: 0;
 }
+#level_complete {
+  background-image: linear-gradient(180deg, green, darkgreen);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 300%;
+  color: white;
+  grid-area: 1/1;
+  display: grid;
+  z-index: 10;
+  justify-content: center;
+  align-content: center;
+}
+#game_over {
+  background-image: linear-gradient(180deg, red, darkred);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 300%;
+  color: white;
+  grid-area: 1/1;
+  display: grid;
+  z-index: 10;
+  justify-content: center;
+  align-content: center;
+}
+
 button {
   padding: 0.5em 1em;
   font-size: 1.5em;
@@ -278,4 +289,214 @@ button {
   -ms-user-select: none;
   user-select: none;
   color: #cc0000;
+}
+/*Timer positiong and animation*/
+#timer {
+  font-family: monospace;
+  color: white;
+  bottom: 2.5%;
+  left: 2%;
+  position: absolute;
+  z-index: 4;
+  font-size: 300%;
+  padding: 0.5%;
+  border-color: white;
+  border-width: 6px;
+  border-style: solid;
+  grid-area: 1/1;
+  display: grid;
+}
+#number::after {
+  content: "0";
+}
+.count::after {
+  animation-duration: 60s;
+  animation-timing-function: steps(60, start);
+  animation-name: count;
+}
+@keyframes count {
+  0%,
+  100% {
+    content: "01:00";
+  }
+  1.67% {
+    content: "00:59";
+  }
+  3.33% {
+    content: "00:58";
+  }
+  5.01% {
+    content: "00:57";
+  }
+  6.68% {
+    content: "00:56";
+  }
+  8.35% {
+    content: "00:55";
+  }
+  10.02% {
+    content: "00:54";
+  }
+  11.69% {
+    content: "00:53";
+  }
+  13.36% {
+    content: "00:52";
+  }
+  15.03% {
+    content: "00:51";
+  }
+  16.7% {
+    content: "00:50";
+  }
+  18.37% {
+    content: "00:49";
+  }
+  20.04% {
+    content: "00:48";
+  }
+  21.71% {
+    content: "00:47";
+  }
+  23.38% {
+    content: "00:46";
+  }
+  25.05% {
+    content: "00:45";
+  }
+  26.72% {
+    content: "00:44";
+  }
+  28.39% {
+    content: "00:43";
+  }
+  30.06% {
+    content: "00:42";
+  }
+  31.73% {
+    content: "00:41";
+  }
+  33.34% {
+    content: "00:40";
+  }
+  35.01% {
+    content: "00:39";
+  }
+  36.68% {
+    content: "00:38";
+  }
+  38.35% {
+    content: "00:37";
+  }
+  40.02% {
+    content: "00:36";
+  }
+  41.69% {
+    content: "00:35";
+  }
+  43.36% {
+    content: "00:34";
+  }
+  45.03% {
+    content: "00:33";
+  }
+  46.7% {
+    content: "00:32";
+  }
+  48.37% {
+    content: "00:31";
+  }
+  50.04% {
+    content: "00:30";
+  }
+  51.71% {
+    content: "00:29";
+  }
+  53.38% {
+    content: "00:28";
+  }
+  55.05% {
+    content: "00:27";
+  }
+  56.72% {
+    content: "00:26";
+  }
+  58.39% {
+    content: "00:25";
+  }
+  60.06% {
+    content: "00:24";
+  }
+  61.73% {
+    content: "00:23";
+  }
+  63.4% {
+    content: "00:22";
+  }
+  65.07% {
+    content: "00:21";
+  }
+  66.74% {
+    content: "00:20";
+  }
+  68.41% {
+    content: "00:19";
+  }
+  70.08% {
+    content: "00:18";
+  }
+  71.75% {
+    content: "00:17";
+  }
+  73.42% {
+    content: "00:16";
+  }
+  75.09% {
+    content: "00:15";
+  }
+  76.76% {
+    content: "00:14";
+  }
+  78.43% {
+    content: "00:13";
+  }
+  80.1% {
+    content: "00:12";
+  }
+  81.77% {
+    content: "00:11";
+  }
+  83.44% {
+    content: "00:10";
+  }
+  85.11% {
+    content: "00:09";
+  }
+  86.78% {
+    content: "00:08";
+  }
+  88.45% {
+    content: "00:07";
+  }
+  90.12% {
+    content: "00:06";
+  }
+  91.79% {
+    content: "00:05";
+  }
+  93.46% {
+    content: "00:04";
+  }
+  95.13% {
+    content: "00:03";
+  }
+  96.8% {
+    content: "00:02";
+  }
+  98.47% {
+    content: "00:01";
+  }
+  99.99% {
+    content: "00:00";
+  }
 }
