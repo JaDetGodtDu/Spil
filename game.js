@@ -8,8 +8,20 @@ let lives = 0;
 function startScreen() {
   console.log("startScreen");
   document.querySelector("#startBtn").addEventListener("click", start);
-}
 
+  document.querySelector("#start_screen").classList.remove("hidden");
+  document.querySelector("#game_over").classList.add("hidden");
+  document.querySelector("#level_complete").classList.add("hidden");
+
+  document
+    .querySelector("#btn_return_to_start")
+    .addEventListener("click", restart);
+}
+function restart() {
+  document.querySelector("#start_screen").classList.remove("hidden");
+  document.querySelector("#game_over").classList.add("hidden");
+  document.querySelector("#level_complete").classList.add("hidden");
+}
 function start() {
   console.log("JavaScript running");
 
@@ -24,13 +36,24 @@ function start() {
   //Start the music
   document.querySelector("#game_music").play();
   document.querySelector("#game_music").loop = true;
+  console.log("music is playing");
   //Reset points and lives
-  points = 0;
-  lives = 3;
+  resetPoints();
+  resetLives();
 
   startAnimations();
   startClickListeners();
   setStartPositions();
+}
+function resetPoints() {
+  points = 0;
+  displayPoints();
+}
+function resetLives() {
+  lives = 3;
+  document.querySelector("#heart0").classList.remove("gray_heart");
+  document.querySelector("#heart1").classList.remove("gray_heart");
+  document.querySelector("#heart2").classList.remove("gray_heart");
 }
 function startAnimations() {
   document.querySelector("#mink1_container").classList.add("left_to_right");
@@ -220,11 +243,20 @@ function decreaseLives() {
 function showDecreasedLives() {
   document.querySelector("#heart" + lives).classList.add("gray_heart");
 }
+function timer() {
+  let time = 90;
+}
 
 function game_over() {
   console.log("Game Over");
   document.querySelector("#game_over").classList.remove("hidden");
 
+  /* stopGame(); */
+
   document.querySelector("#game_music").pause();
   document.querySelector("#game_over_sound").play();
 }
+/* function stopGame() {
+  console.log("game has stopped");
+  document.querySelector("#game").remove();
+} */
