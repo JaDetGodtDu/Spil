@@ -34,9 +34,7 @@ function start() {
   document.querySelector("#start_screen").classList.add("hidden");
 
   //Start the music
-  document.querySelector("#game_music").play();
-  document.querySelector("#game_music").loop = true;
-  console.log("music is playing");
+  startMusic();
   //Reset points and lives
   resetPoints();
   resetLives();
@@ -81,6 +79,12 @@ function setStartPositions() {
   document.querySelector("#mink2_container").classList.add("position2");
   document.querySelector("#lars_container").classList.add("position3");
   document.querySelector("#jakob_container").classList.add("position4");
+}
+function startMusic() {
+  console.log("music is playing");
+  document.querySelector("#game_music").load();
+  document.querySelector("#game_music").play();
+  document.querySelector("#game_music").loop = true;
 }
 
 function clickMink1() {
@@ -278,14 +282,12 @@ function levelComplete() {
   document.querySelector("#game").remove();
 } */
 function startTimer() {
-  // Sæt timer-animationen (count) i gang ved at tilføje klassen count til number
+  console.log("startTimer");
   document.querySelector("#number").classList.add("count");
-
-  // Tilføj en eventlistener som lytter efter at animationen er færdig (animationend) og kalder funktionen timeIsUp
   document.querySelector("#number").addEventListener("animationend", timeIsUp);
 }
 function timeIsUp() {
-  console.log("Tiden er gået!");
+  console.log("timeIsUp");
   document.querySelector("#number").classList.remove("count");
 
   levelComplete();
