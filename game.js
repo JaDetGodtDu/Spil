@@ -19,11 +19,15 @@ function startScreen() {
 }
 function restart() {
   document.querySelector("#start_screen").classList.remove("hidden");
+  document.querySelector("#start_screen").classList.add("zoom_in");
+  document.querySelector("#game_over").classList.remove("zoom_in");
   document.querySelector("#game_over").classList.add("hidden");
+  document.querySelector("#level_complete").classList.remove("zoom_in");
   document.querySelector("#level_complete").classList.add("hidden");
+  document.querySelector("#game").classList.remove("zoom_in");
 }
 function start() {
-  console.log("JavaScript running");
+  console.log("Game is running");
 
   //Prevents dragging - Makes stuf easier to click on i think
   const img = document.querySelector("img");
@@ -33,12 +37,14 @@ function start() {
   //Hide start screen
   document.querySelector("#start_screen").classList.add("hidden");
 
-  //Start the music
-  startMusic();
+  document.querySelector("#game").classList.add("zoom_in");
+
   //Reset points and lives
   resetPoints();
   resetLives();
 
+  //Start the stuf. It's alive!
+  startMusic();
   startTimer();
   startAnimations();
   startClickListeners();
@@ -86,7 +92,6 @@ function startMusic() {
   document.querySelector("#game_music").play();
   document.querySelector("#game_music").loop = true;
 }
-
 function clickMink1() {
   console.log("clickMink1");
   let container = this;
@@ -103,7 +108,6 @@ function clickMink1() {
   container.addEventListener("animationend", mink1Gone);
   givePoints();
 }
-
 function clickMink2() {
   console.log("clickMink2");
   let container = this;
@@ -120,7 +124,6 @@ function clickMink2() {
   container.addEventListener("animationend", mink2Gone);
   givePoints();
 }
-
 function clickLars() {
   console.log("clickLars");
   let container = this;
@@ -138,7 +141,6 @@ function clickLars() {
 
   decreaseLives();
 }
-
 function clickJakob() {
   console.log("clickJakob");
   let container = this;
@@ -155,7 +157,6 @@ function clickJakob() {
   container.addEventListener("animationend", jakobGone);
   decreaseLives();
 }
-
 function mink1Gone() {
   console.log("mink1Gone");
   let container = this;
@@ -172,7 +173,6 @@ function mink1Gone() {
   //Start listening for click again
   container.addEventListener("click", clickMink1);
 }
-
 function mink2Gone() {
   console.log("mink2Gone");
   let container = this;
@@ -189,7 +189,6 @@ function mink2Gone() {
   //Start listening for click again
   container.addEventListener("click", clickMink2);
 }
-
 function larsGone() {
   console.log("larsGone");
   let container = this;
@@ -206,7 +205,6 @@ function larsGone() {
   //Start listening for click again
   container.addEventListener("click", clickLars);
 }
-
 function jakobGone() {
   console.log("jakobGone");
   let container = this;
@@ -232,7 +230,6 @@ function displayPoints() {
   console.log("displayPoints");
   document.querySelector("#score").textContent = points;
 }
-
 function decreaseLives() {
   console.log("mist et liv");
   lives--;
@@ -250,6 +247,7 @@ function showDecreasedLives() {
 }
 function game_over() {
   console.log("Game Over");
+  document.querySelector("#game_over").classList.add("zoom_in");
   document.querySelector("#game_over").classList.remove("hidden");
 
   stopGame();
@@ -259,6 +257,7 @@ function game_over() {
 }
 function levelComplete() {
   console.log("Level Complete");
+  document.querySelector("#level_complete").classList.add("zoom_in");
   document.querySelector("#level_complete").classList.remove("hidden");
 
   stopGame();
@@ -271,9 +270,9 @@ function levelComplete() {
     .querySelector("#btn_return_to_start1")
     .addEventListener("click", restart);
 
-  document.querySelector("#playerPoints").textContent =
-    /* "Du har tjent: " + points + " point."; */
-    `Du har tjent: ${points} points. Tillykke!`;
+  document.querySelector(
+    "#playerPoints"
+  ).textContent = `Du har tjent: ${points} point. Tillykke!`;
 }
 function stopGame() {
   console.log("stopGame");
