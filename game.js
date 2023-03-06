@@ -248,15 +248,11 @@ function decreaseLives() {
 function showDecreasedLives() {
   document.querySelector("#heart" + lives).classList.add("gray_heart");
 }
-function timer() {
-  let time = 90;
-}
-
 function game_over() {
   console.log("Game Over");
   document.querySelector("#game_over").classList.remove("hidden");
 
-  /* stopGame(); */
+  stopGame();
 
   document.querySelector("#game_music").pause();
   document.querySelector("#game_over_sound").play();
@@ -264,6 +260,8 @@ function game_over() {
 function levelComplete() {
   console.log("Level Complete");
   document.querySelector("#level_complete").classList.remove("hidden");
+
+  stopGame();
 
   document.querySelector("#game_music").pause();
   document.querySelector("#succes_music").play();
@@ -277,10 +275,21 @@ function levelComplete() {
     /* "Du har tjent: " + points + " point."; */
     `Du har tjent: ${points} points. Tillykke!`;
 }
-/* function stopGame() {
-  console.log("game has stopped");
-  document.querySelector("#game").remove();
-} */
+function stopGame() {
+  console.log("stopGame");
+
+  document.querySelector("#mink1_container").classList.remove("position1");
+  document.querySelector("#mink2_container").classList.remove("position2");
+  document.querySelector("#lars_container").classList.remove("position3");
+  document.querySelector("#jakob_container").classList.remove("position4");
+
+  document.querySelector("#mink1_container").classList.remove("left_to_right");
+  document.querySelector("#mink2_container").classList.remove("right_to_left");
+  document.querySelector("#lars_container").classList.remove("left_to_right");
+  document.querySelector("#jakob_container").classList.remove("right_to_left");
+
+  document.querySelector("#number").classList.remove("count");
+}
 function startTimer() {
   console.log("startTimer");
   document.querySelector("#number").classList.add("count");
