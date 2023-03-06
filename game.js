@@ -334,7 +334,7 @@ function stopGame() {
 
   document.querySelector("#mink1_container").classList.remove("left_to_right");
   document.querySelector("#mink2_container").classList.remove("right_to_left");
-  document.querySelector("#hvede_container").classList.add("left_to_right");
+  document.querySelector("#hvede_container").classList.remove("left_to_right");
   document.querySelector("#lars_container").classList.remove("left_to_right");
   document.querySelector("#jakob_container").classList.remove("right_to_left");
 
