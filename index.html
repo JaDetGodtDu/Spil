@@ -9,7 +9,7 @@
     <title>Mit Spil</title>
   </head>
   <body>
-   <section class="unselectable" id="screen">
+    <section class="unselectable" id="screen">
       <section id="game">
         <article id="game_background"></article>
         <article id="game_elements">
@@ -29,9 +29,9 @@
               alt="mink"
             />
           </div>
-          <!-- <div class="container" id="hvede_container"> -->
-          <!-- <img src="images/bolle.jpg" alt="hvede" /> -->
-          <!-- </div> -->
+          <div id="hvede_container">
+            <img id="hvede_sprite" src="images/bolle.png" alt="hvede" />
+          </div>
           <div id="lars_container">
             <img
               class="clickLars"
@@ -74,9 +74,10 @@
       <section id="start_screen">
         <h2>MetteMink og Midterregeringen</h2>
         <p>
-          Skyd så mange mink du kan, inden tiden løber ud. Undgå at skyde dine
-          gode venner Lars og Jakob.
+          Skyd så mange mink og hveder du kan og se hvor mange point du kan få,
+          inden tiden løber ud.
         </p>
+        <p>Skyder du Lars eller Jakob, mister du liv.</p>
         <div id="start_btn_div">
           <button id="startBtn">START</button>
         </div>
@@ -87,10 +88,11 @@
           <button id="btn_return_to_start">Tilbage Til Start</button>
         </div>
       </section>
-      <section class="hidden" id="level_complete"><h2><b>SPILLET ER SLUT</b></h2>
-        <p id=playerPoints></p>
-        <div id="level_complete_btn_div">
-          <button id="btn_return_to_start1">Tilbage Til Start</button></section>
+      <section class="hidden" id="level_complete">
+        <h2><b>SPILLET ER SLUT</b></h2>
+        <p id="playerPoints"></p>
+        <button id="btn_return_to_start1">Tilbage Til Start</button>
+      </section>
     </section>
     <script src="game.js"></script>
     <article id="sounds">
@@ -100,6 +102,7 @@
       <audio src="audio/musik.mp3" id="game_music"></audio>
       <audio src="audio/succes.mp3" id="succes_music"></audio>
       <audio src="audio/wow.mp3" id="wow_sound"></audio>
+      <audio src="audio/smack.mp3" id="hvede_sound"></audio>
     </article>
   </body>
 </html>

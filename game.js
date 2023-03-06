@@ -25,6 +25,7 @@ function restart() {
   document.querySelector("#level_complete").classList.remove("zoom_in");
   document.querySelector("#level_complete").classList.add("hidden");
   document.querySelector("#game").classList.remove("zoom_in");
+  startScreen();
 }
 function start() {
   console.log("Game is running");
@@ -65,6 +66,7 @@ function startAnimations() {
   document.querySelector("#mink2_container").classList.add("right_to_left");
   document.querySelector("#lars_container").classList.add("left_to_right");
   document.querySelector("#jakob_container").classList.add("right_to_left");
+  document.querySelector("#hvede_container").classList.add("left_to_right");
 }
 function startClickListeners() {
   document
@@ -79,15 +81,20 @@ function startClickListeners() {
   document
     .querySelector("#jakob_container")
     .addEventListener("click", clickJakob);
+  document
+    .querySelector("#hvede_container")
+    .addEventListener("click", clickHvede);
 }
 function setStartPositions() {
   document.querySelector("#mink1_container").classList.add("position1");
   document.querySelector("#mink2_container").classList.add("position2");
   document.querySelector("#lars_container").classList.add("position3");
   document.querySelector("#jakob_container").classList.add("position4");
+  document.querySelector("#hvede_container").classList.add("position5");
 }
 function startMusic() {
   console.log("music is playing");
+  document.querySelector("#game_music").volume = 0.75;
   document.querySelector("#game_music").load();
   document.querySelector("#game_music").play();
   document.querySelector("#game_music").loop = true;
@@ -96,6 +103,7 @@ function clickMink1() {
   console.log("clickMink1");
   let container = this;
 
+  document.querySelector("#mink_sound").volume = 0.2;
   document.querySelector("#mink_sound").play();
   document.querySelector("#mink_sound").currentTime = 0;
   // Stop listening for click
@@ -112,6 +120,7 @@ function clickMink2() {
   console.log("clickMink2");
   let container = this;
 
+  document.querySelector("#mink_sound").volume = 0.2;
   document.querySelector("#mink_sound").play();
   document.querySelector("#mink_sound").currentTime = 0;
   // Stop listening for click
@@ -120,14 +129,32 @@ function clickMink2() {
   container.classList.add("paused");
   //Start zoom/rotate animation
   document.querySelector("#mink2_sprite").classList.add("rotate_zoom");
-  //When animation stops, run mink1Gone
+  //When animation stops, run mink2Gone
   container.addEventListener("animationend", mink2Gone);
   givePoints();
+}
+function clickHvede() {
+  console.log("clickHvede");
+  let container = this;
+
+  document.querySelector("#hvede_sound").volume = 0.5;
+  document.querySelector("#hvede_sound").play();
+  document.querySelector("#hvede_sound").currentTime = 0;
+  // Stop listening for click
+  container.removeEventListener("click", clickHvede);
+  // Stop container at clicked position
+  container.classList.add("paused");
+  //Start zoom/rotate animation
+  document.querySelector("#hvede_sprite").classList.add("rotate_zoom");
+  //When animation stops, run hvedeGone
+  container.addEventListener("animationend", hvedeGone);
+  giveHvedePoints();
 }
 function clickLars() {
   console.log("clickLars");
   let container = this;
 
+  document.querySelector("#lars_jakob_sound").volume = 0.5;
   document.querySelector("#lars_jakob_sound").play();
   document.querySelector("#lars_jakob_sound").currentTime = 0;
   //Stop listening for click
@@ -136,7 +163,7 @@ function clickLars() {
   container.classList.add("paused");
   //Start zoom/rotate animation
   document.querySelector("#lars_sprite").classList.add("rotate_zoom");
-  //When animation stops, run mink1Gone
+  //When animation stops, run larsGone
   container.addEventListener("animationend", larsGone);
 
   decreaseLives();
@@ -145,6 +172,7 @@ function clickJakob() {
   console.log("clickJakob");
   let container = this;
 
+  document.querySelector("#lars_jakob_sound").volume = 0.5;
   document.querySelector("#lars_jakob_sound").play();
   document.querySelector("#lars_jakob_sound").currentTime = 0;
   //Stop listening for click
@@ -153,7 +181,7 @@ function clickJakob() {
   container.classList.add("paused");
   //Start zoom/rotate animation
   document.querySelector("#jakob_sprite").classList.add("rotate_zoom");
-  //When animation stops, run mink1Gone
+  //When animation stops, run jakobGone
   container.addEventListener("animationend", jakobGone);
   decreaseLives();
 }
@@ -188,6 +216,22 @@ function mink2Gone() {
   container.classList.add("right_to_left");
   //Start listening for click again
   container.addEventListener("click", clickMink2);
+}
+function hvedeGone() {
+  console.log("hvedeGone");
+  let container = this;
+  //Stop listening
+  container.removeEventListener("animationend", hvedeGone);
+  //Remove rotate_zoom animation
+  document.querySelector("#hvede_sprite").classList.remove("rotate_zoom");
+  //Remove paused animation
+  container.classList.remove("paused");
+  //Restart animations
+  container.classList.remove("left_to_right");
+  container.offsetHeight;
+  container.classList.add("left_to_right");
+  //Start listening for click again
+  container.addEventListener("click", clickHvede);
 }
 function larsGone() {
   console.log("larsGone");
@@ -224,6 +268,11 @@ function jakobGone() {
 function givePoints() {
   console.log("givePoints");
   points = points + 10;
+  displayPoints();
+}
+function giveHvedePoints() {
+  console.log("giveHvedePoints");
+  points = points + 25;
   displayPoints();
 }
 function displayPoints() {
@@ -281,9 +330,11 @@ function stopGame() {
   document.querySelector("#mink2_container").classList.remove("position2");
   document.querySelector("#lars_container").classList.remove("position3");
   document.querySelector("#jakob_container").classList.remove("position4");
+  document.querySelector("#hvede_container").classList.remove("position5");
 
   document.querySelector("#mink1_container").classList.remove("left_to_right");
   document.querySelector("#mink2_container").classList.remove("right_to_left");
+  document.querySelector("#hvede_container").classList.add("left_to_right");
   document.querySelector("#lars_container").classList.remove("left_to_right");
   document.querySelector("#jakob_container").classList.remove("right_to_left");
 
