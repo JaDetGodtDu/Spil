@@ -71,19 +71,19 @@ function startAnimations() {
 function startClickListeners() {
   document
     .querySelector("#mink1_container")
-    .addEventListener("click", clickMink1);
+    .addEventListener("mousedown", clickMink1);
   document
     .querySelector("#mink2_container")
-    .addEventListener("click", clickMink2);
+    .addEventListener("mousedown", clickMink2);
   document
     .querySelector("#lars_container")
-    .addEventListener("click", clickLars);
+    .addEventListener("mousedown", clickLars);
   document
     .querySelector("#jakob_container")
-    .addEventListener("click", clickJakob);
+    .addEventListener("mousedown", clickJakob);
   document
     .querySelector("#hvede_container")
-    .addEventListener("click", clickHvede);
+    .addEventListener("mousedown", clickHvede);
 }
 function setStartPositions() {
   document.querySelector("#mink1_container").classList.add("position1");
@@ -107,7 +107,7 @@ function clickMink1() {
   document.querySelector("#mink_sound").play();
   document.querySelector("#mink_sound").currentTime = 0;
   // Stop listening for click
-  container.removeEventListener("click", clickMink1);
+  container.removeEventListener("mousedown", clickMink1);
   // Stop container at clicked position
   container.classList.add("paused");
   //Start zoom/rotate animation
@@ -124,7 +124,7 @@ function clickMink2() {
   document.querySelector("#mink_sound").play();
   document.querySelector("#mink_sound").currentTime = 0;
   // Stop listening for click
-  container.removeEventListener("click", clickMink2);
+  container.removeEventListener("mousedown", clickMink2);
   // Stop container at clicked position
   container.classList.add("paused");
   //Start zoom/rotate animation
@@ -141,7 +141,7 @@ function clickHvede() {
   document.querySelector("#hvede_sound").play();
   document.querySelector("#hvede_sound").currentTime = 0;
   // Stop listening for click
-  container.removeEventListener("click", clickHvede);
+  container.removeEventListener("mousedown", clickHvede);
   // Stop container at clicked position
   container.classList.add("paused");
   //Start zoom/rotate animation
@@ -158,7 +158,7 @@ function clickLars() {
   document.querySelector("#lars_jakob_sound").play();
   document.querySelector("#lars_jakob_sound").currentTime = 0;
   //Stop listening for click
-  container.removeEventListener("click", clickLars);
+  container.removeEventListener("mousedown", clickLars);
   // Stop container at clicked position
   container.classList.add("paused");
   //Start zoom/rotate animation
@@ -176,7 +176,7 @@ function clickJakob() {
   document.querySelector("#lars_jakob_sound").play();
   document.querySelector("#lars_jakob_sound").currentTime = 0;
   //Stop listening for click
-  container.removeEventListener("click", clickJakob);
+  container.removeEventListener("mousedown", clickJakob);
   // Stop container at clicked position
   container.classList.add("paused");
   //Start zoom/rotate animation
@@ -199,7 +199,7 @@ function mink1Gone() {
   container.offsetHeight;
   container.classList.add("left_to_right");
   //Start listening for click again
-  container.addEventListener("click", clickMink1);
+  container.addEventListener("mousedown", clickMink1);
 }
 function mink2Gone() {
   console.log("mink2Gone");
@@ -215,7 +215,7 @@ function mink2Gone() {
   container.offsetHeight;
   container.classList.add("right_to_left");
   //Start listening for click again
-  container.addEventListener("click", clickMink2);
+  container.addEventListener("mousedown", clickMink2);
 }
 function hvedeGone() {
   console.log("hvedeGone");
@@ -231,7 +231,7 @@ function hvedeGone() {
   container.offsetHeight;
   container.classList.add("left_to_right");
   //Start listening for click again
-  container.addEventListener("click", clickHvede);
+  container.addEventListener("mousedown", clickHvede);
 }
 function larsGone() {
   console.log("larsGone");
@@ -247,7 +247,7 @@ function larsGone() {
   container.offsetHeight;
   container.classList.add("left_to_right");
   //Start listening for click again
-  container.addEventListener("click", clickLars);
+  container.addEventListener("mousedown", clickLars);
 }
 function jakobGone() {
   console.log("jakobGone");
@@ -263,7 +263,7 @@ function jakobGone() {
   container.offsetHeight;
   container.classList.add("right_to_left");
   //Start listening for click again
-  container.addEventListener("click", clickJakob);
+  container.addEventListener("mousedown", clickJakob);
 }
 function givePoints() {
   console.log("givePoints");
